@@ -1,0 +1,36 @@
+.sidebar{
+    background-color:rgb(255, 255, 255);
+    padding: 10px;
+    border: 5px solid #ccc;
+    border-radius: 10px;
+}
+
+.titulo-menu{
+    list-style-type: none;
+}
+
+.titulo-menu li{
+    display: inline-block;
+}
+
+.meses{
+    text-align: center;
+}
+
+.meseswrap{
+    justify-content: center
+}
+
+.meses h4{
+    background-color: rgb(37, 37, 37);
+}
+
+.meses button{
+    font-size: 10px;
+    margin: 5px;
+    width: 100px;
+}
+
+.datas input{
+    margin: 10px 0 10px 0;
+}

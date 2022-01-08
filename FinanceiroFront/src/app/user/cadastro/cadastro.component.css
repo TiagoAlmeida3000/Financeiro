@@ -1,0 +1,13 @@
+.loginform{
+    margin: 100px auto;
+    max-width: 600px;
+    top: 10px;
+    text-align: center;
+    -webkit-box-shadow: 5px 3px 6px 5px rgba(0,0,0,0.23); 
+    box-shadow: 5px 3px 6px 5px rgba(0,0,0,0.23);
+}
+
+button{
+    margin: 0 auto;
+    max-width: 200px;
+}

@@ -1,0 +1,78 @@
+<table class="table" *ngIf="lancamentos$ as lancamentos; else loading">
+    <thead style="background-color: #ccc;" class="thead-dark">
+      <tr>
+        <th scope="col">Mes e Ano</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Forma de Pagamneto</th>
+        <th scope="col">Saldo Anterior</th>
+        <th scope="col">Saldo</th>
+        <th scope="col">Pagina: {{pagAtual}}</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let lancamento of lancamentos">
+      <tr [ngStyle]="{'background-color':lancamento.tipo === 'receita' ? 'rgba(80, 206, 80, 0.404)' : 'rgba(209, 84, 84, 0.404)'}">
+        <td class="col-md-2">{{lancamento.data | date: 'dd/MM/yyyy'}}</td>
+        <td class="col-md-2">{{lancamento.tipo}}</td>
+        <td class="col-md-2">{{lancamento.categoria}}</td>
+        <td class="col-md-2">{{lancamento.formaDePgto}}</td>
+        <td class="col-md-2">{{lancamento.valor | currency}}</td>
+        <td class="col-md-1">{{lancamento.saldoFinal | currency}}</td>
+        <td class="col-md-1">
+          <button type="button" class="btn btn-outline-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+            </svg>
+          </button>
+          <button type="button" class="btn btn-outline-danger" (click)="deletar(lancamento)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </tbody> 
+</table>
+<ng-template #loading>
+    <span>Carregando....</span>
+</ng-template>
+
+<nav class="p">
+  <ul class="pagination flex-wrap">
+    <li class="page-item"><a class="page-link"  (click)="anterior()" style="cursor: default; user-select: none;">Anterior</a></li>        
+    <li *ngFor='let in of counter(totalnum + 1); let i = index;'  value="{{(i * take) + take}}" id="bt{{i + 1}}" #V (click)="mudar(V.value, i)" class="page-item" style="cursor: default;"><a class="page-link">{{i + 1}}</a></li>
+    <li class="page-item"><a class="page-link" (click)="proximo()" style="cursor: default; user-select: none;">Próximo</a></li>
+  </ul>
+</nav>
+
+
+<!-- <ng-template class="edit" #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Editar anotação</h4>
+    <button type="button" class="close btn-close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="formE"  #anotacaoForm="ngForm" [formGroup]="form" (ngSubmit)='submitEdit(form)' >
+      <input type="text"  formControlName="titulo"  id="titulo"  name="titulo" placeholder="Titulo" class="form-control">
+      <input type="text"  formControlName="descricao" id="descricao" name="descricao" placeholder="Descrição" class="form-control ">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="modalRef?.hide()">Close</button>
+  </div>
+</ng-template> -->
+
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja deletar esse Contato?</p>
+    <button type="button" class="btn btn-default" (click)="confirmDelete()" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="declineDelete()" >Não</button>
+  </div>
+</ng-template>
+

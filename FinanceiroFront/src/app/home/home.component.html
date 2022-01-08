@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid container-app">
+    <a class="navbar-brand" href="#">Anotaçoes</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Bem vindo! {{usuario}}</a>
+        <a class="nav-link" href="#">Envie o feedback</a>
+        <a class="nav-link" href="#">ajuda</a>
+        <a class="btn btn-outline-danger"  href="" (click)="logOut()">Sair</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="borda">
+  <div class="lancamento">
+      <app-lancamento-form [categorias] = "categorias.categorias"></app-lancamento-form>
+  </div>
+</div>
+<div class="filtro">
+    <app-lancamento-filtro></app-lancamento-filtro>
+</div>
+<div class="borda">
+  <div class="lista-lancamento">
+      <app-lancamento-lista #categorias></app-lancamento-lista>
+  </div>
+</div>
+
+<div class="clear"></div>

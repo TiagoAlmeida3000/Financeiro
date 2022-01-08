@@ -1,0 +1,83 @@
+<nav style="padding-left: 30px;" class="row">
+    <h3 class="col-md-6">Lançamentos</h3>   
+    <div class="nav nav-tabs col-md-6 justify-content-end" id="nav-tab" role="tablist">
+      <button class="nav-link active text-info sombra" data-bs-toggle="tab" id="instrucao" value="instrucao" #R1 (click)="trocarAba(R1.value)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </svg> Instrução</button>
+      <button class="nav-link  text-secondary" data-bs-toggle="tab" id="receita" value="receita" #B1 (click)="trocarAba(B1.value)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+          </svg> Receita</button>
+      <button class="nav-link text-secondary" data-bs-toggle="tab"  id="despesa" value="despesa" #D1 (click)="trocarAba(D1.value)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z"/>
+          </svg> Despesa</button>
+    </div>
+</nav>
+
+<div class="tab-content conteudo fundoi" id="fundo">
+    <div class="tab-pane fade show active  " id="nav-instrucao" role="tabpanel" aria-labelledby="nav-home-tab">
+        instrução
+    </div>
+    <div class="tab-pane fade" id="nav-receita" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <form  #receitaForm="ngForm" (ngSubmit)='submit(receitaForm)'>
+        <div class="tamanho">
+          <label for="valor">Valor</label>
+          <input [(ngModel)]="lancamento.valor" format="currency" name="valor" type="number"  min="0.00" max="10000.00" step="0.01" class="form-control " id="valor" placeholder="" autocomplete="off">
+        </div>
+        <div class="tamanho">
+          <label for="formaDePgto">Forma de Pagamento</label>
+          <select [(ngModel)]="lancamento.formaDePgto" name="formaDePgto" class="form-control " id="formaDePgto">
+            <option *ngFor="let fPag of fPags">{{fPag}}</option>
+          </select>
+        </div>
+        <div class="tamanho">
+          <label for="categoria">Categoria</label>
+          <input [(ngModel)]="lancamento.categoria" name="categoria" list="Categorias"  class="form-control " id="categoria" autocomplete="off">
+            <datalist id="Categorias">
+              <option *ngFor="let categoria of categorias">{{categoria}}</option>
+            </datalist>
+        </div>
+        <hr>
+        <div class="" style="max-width: 660px; margin: 0 10px 0 10px;">
+          <label for="descricao">Descrição</label>
+          <textarea [(ngModel)]="lancamento.descricao" name="descricao" class="form-control" id="descricao" rows="3"></textarea>
+        </div>
+        <hr>
+        <div class="bt">
+          <button type="submit" class="btn btn-primary" [disabled]="!receitaForm.valid">Salvar</button>
+        </div>
+      </form>
+    </div>
+    <div class="tab-pane fade" id="nav-despesa" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <form  #despesaForm="ngForm" (ngSubmit)='submit(despesaForm)'>
+        <div class="tamanho">
+          <label for="valor">Valor</label>
+          <input [(ngModel)]="lancamento.valor" format="currency" name="valor" type="number" class="form-control " id="valor" placeholder="" autocomplete="off">
+        </div>
+        <div class="tamanho">
+          <label for="formaDePgto">Forma de Pagamento</label>
+          <select [(ngModel)]="lancamento.formaDePgto" name="formaDePgto" class="form-control " id="formaDePgto">
+            <option *ngFor="let fPag of fPags">{{fPag}}</option>
+          </select>
+        </div>
+        <div class="tamanho">
+          <label for="categoria">Categoria</label>
+          <input [(ngModel)]="lancamento.categoria" name="categoria" list="Categorias"  class="form-control " id="categoria" autocomplete="off">
+            <datalist id="Categorias">
+              <option *ngFor="let categoria of categorias">{{categoria}}</option>
+            </datalist>
+        </div>
+        <hr>
+        <div class="" style="max-width: 660px; margin: 0 10px 0 10px;">
+          <label for="descricao">Descrição</label>
+          <textarea [(ngModel)]="lancamento.descricao" name="descricao" class="form-control" id="descricao" rows="3"></textarea>
+        </div>
+        <hr>
+        <div class="bt">
+          <button type="submit" class="btn btn-primary" [disabled]="!despesaForm.valid">Salvar</button>
+        </div>
+      </form>
+   </div>
+</div>

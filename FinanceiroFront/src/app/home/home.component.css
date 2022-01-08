@@ -1,0 +1,45 @@
+.lancamento{
+    margin-top: 30px;
+    float: left;
+    width: 75%;
+    border-radius: 10px;
+    border: 5px solid #ccc;
+}
+
+.borda{
+    padding: 8px 20px 0 20px; 
+}
+
+.lista-lancamento{
+    float: left;
+    margin-top: 20px;
+    width: 75%;
+    border: 5px solid #ccc;
+    border-radius: 10px;
+}
+
+.filtro{
+    margin-top: 21px;
+    float: right;
+    width: 25%;
+    padding: 8px 20px 0 20px; 
+}
+
+.clear{
+    clear: both;
+}
+
+@media screen and (max-width: 1145px) {
+    .lancamento{
+        float: none;
+        width: 100%;
+    }
+    .lista-lancamento{
+        float: none;
+        width: 100%;
+    }
+    .filtro{
+        float: none;
+        width: 100%;
+    }
+}

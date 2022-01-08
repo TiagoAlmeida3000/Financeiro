@@ -1,0 +1,23 @@
+<div class="sidebar">
+    <form action="">
+        <div style="text-align: center;" class="row">
+            <h5 class="col-md-6">Filtros</h5>
+            <div class="col-md-6">
+                <button  style="font-size: 10px; padding: 2px;" type="button" class="btn btn-secondary">Limpar Filtro</button>
+            </div>
+        </div>
+        <div class="meses">
+            <h4 style="color: white;"><   Ano   ></h4>
+            <div class="d-flex flex-wrap meseswrap">
+                <button *ngFor="let mes of meses; let i = index" value="{{i + 1}}" type="button" class="btn btn-secondary">{{mes}}</button>
+            </div>
+        </div>
+        <div class="datas">
+            <label for="data-inicial">Data inicial:</label>
+            <input class="form-control" type="date" name="data-inicial" id="">
+            <label for="data-final">Data final:</label>
+            <input class="form-control" type="date" name="data-final" id="">
+            <button type="button" class="btn btn-secondary">Filtrar</button>
+        </div>
+    </form>
+</div>

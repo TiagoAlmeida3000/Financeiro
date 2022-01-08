@@ -1,0 +1,101 @@
+
+<div class="loginform">
+    <form class="form-signin" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="container-fluid">
+        <h2 class="form-signin-heading">Cadastro</h2>
+        <br/>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail"
+               name="Email" placeholder="Email"
+               class="form-control mb-2"
+               [ngClass]="{
+                'is-invalid':Email.invalid && (Email.dirty || Email.touched),
+                'is-valid':Email.valid && (Email.dirty || Email.touched)
+               }" 
+               [(ngModel)]="registerForm.value.Email"
+               #Email="ngModel"
+               Email
+               pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+               required />
+    
+        <div class="invalid-feedback mb-2" *ngIf="Email.invalid && (Email.dirty || Email.touched)">
+          <div *ngIf="Email.errors?.required">
+            Email é de preenchimento obrigatório
+          </div>
+          <div *ngIf="Email.errors?.pattern">
+            Email está no formato inválido
+          </div>
+        </div>
+        <br/>
+        <label for="inputNome" class="sr-only">Nome</label>
+        <input type="text" id="inputNome"
+               name="Nome" placeholder="Nome"
+               class="form-control mb-2"
+               [ngClass]="{
+                'is-invalid':Nome.invalid && (Nome.dirty || Nome.touched),
+                'is-valid':Nome.valid && (Nome.dirty || Nome.touched)
+               }" 
+               [(ngModel)]="registerForm.value.Nome"
+               #Nome="ngModel"
+               Nome
+               required />
+    
+        <div class="invalid-feedback mb-2" *ngIf="Nome.invalid && (Nome.dirty || Nome.touched)">
+          <div *ngIf="Nome.errors?.required">
+            Nome é de preenchimento obrigatório
+          </div>    
+        </div>
+        <br/>
+        <label for="inputSenha" class="sr-only">Senha</label>
+        <input type="password" id="inputSenha"
+               name="Senha" placeholder="Senha"
+               class="form-control mb-2"
+               [ngClass]="{
+                'is-invalid':Senha.invalid && (Senha.dirty || Senha.touched),
+                'is-valid':Senha.valid && (Senha.dirty || Senha.touched)
+               }" 
+               [(ngModel)]="registerForm.value.Senha"
+               #Senha="ngModel"
+               Senha
+               pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})"
+               required />
+    
+        <div class="invalid-feedback mb-2" *ngIf="Senha.invalid && (Senha.dirty || Senha.touched)">
+          <div *ngIf="Senha.errors?.required">
+            Senha é de preenchimento obrigatório
+          </div>
+          <div *ngIf="Senha.errors?.pattern">
+            A senha tem que ter letras maiuscula e minusculas e 8 caracteres
+          </div>        
+        </div>
+        <br/>
+        <label for="inputCSenha" class="sr-only">Confirme sua Senha</label>
+        <input type="password" id="inputCSenha"
+               name="CSenha" placeholder="Confirme sua Senha"
+               class="form-control mb-2"
+               [ngClass]="{
+                'is-invalid':CSenha.invalid && (CSenha.dirty || CSenha.touched),
+                'is-valid':CSenha.valid && (CSenha.dirty || CSenha.touched)
+               }" 
+               [(ngModel)]="registerForm.value.CSenha"
+               #CSenha="ngModel"
+               CSenha
+               required />
+    
+        <div class="invalid-feedback mb-2" *ngIf="CSenha.invalid && (CSenha.dirty || CSenha.touched)">
+          <div *ngIf="CSenha.errors?.required">
+            preenchimento obrigatório
+          </div>     
+        </div>
+        <br/>
+        <button class="btn btn-lg btn-dark btn-block" type="submit" [disabled]="!registerForm.valid">Cadastrar</button>
+      </div>
+    </form>
+    <br>
+    <a href="" [routerLink]="['/login']">Login</a>
+    <br>
+    <br>
+    <div class="alert alert-danger" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+  </div>

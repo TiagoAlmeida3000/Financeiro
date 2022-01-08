@@ -1,0 +1,19 @@
+<div class="loginform">
+    <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <div class="container-fluid">
+          <h2 class="form-signin-heading">Entrar</h2>
+          <div *ngIf="invalidLogin" class="alert alert-danger">Email ou Senha incorretos</div>
+          <br/>
+          <label for="Email" class="sr-only">Email</label>
+          <input type="email" id="username" name="Email" ngModel class="form-control" placeholder="Email" required autofocus>
+          <br/>
+          <label for="Senha" class="sr-only">Senha</label>
+          <input type="password" id="password" name="Senha" ngModel class="form-control" placeholder="Senha" required>
+          <br/>
+          <button class="btn btn-lg btn-dark btn-block" type="submit">Entrar</button>
+        </div>
+      </form>
+      <br>
+      <a href="" [routerLink]="['/cadastro']">Cadastro</a>
+  </div>
+  

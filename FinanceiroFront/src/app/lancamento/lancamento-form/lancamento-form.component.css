@@ -1,0 +1,48 @@
+
+.conteudo{
+  padding: 30px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.sombra{
+  -webkit-box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.39); 
+  box-shadow: -1px 1px 5px 3px rgba(0,0,0,0.39);
+}
+
+.fundoi{
+  background-color: #17a3b878;
+}
+
+.fundor{
+  background-color: rgba(80, 206, 80, 0.404);
+}
+
+.fundod{
+  background-color: rgba(209, 84, 84, 0.404);
+}
+
+label{
+  display: inline;
+}
+
+.tamanho{
+  min-width: 200px;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+form{
+ align-items: center;
+ margin: 0 auto;
+}
+
+.bt{
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+button{
+  margin: 0 0 0 10px;
+}

@@ -1,0 +1,12 @@
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\bin\Debug\net5.0\Financeiro.Dominio.deps.json
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\bin\Debug\net5.0\Financeiro.Dominio.dll
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\bin\Debug\net5.0\ref\Financeiro.Dominio.dll
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\bin\Debug\net5.0\Financeiro.Dominio.pdb
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\Financeiro.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\Financeiro.Dominio.AssemblyInfoInputs.cache
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\Financeiro.Dominio.AssemblyInfo.cs
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\Financeiro.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\Financeiro.Dominio.dll
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\ref\Financeiro.Dominio.dll
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\Financeiro.Dominio.pdb
+C:\Users\Jurandir\source\repos\ControleFinanceiro\Financeiro.Dominio\obj\Debug\net5.0\Financeiro.Dominio.csproj.AssemblyReference.cache
